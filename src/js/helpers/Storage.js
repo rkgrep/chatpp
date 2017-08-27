@@ -1,34 +1,41 @@
-let common = require("./Common.js");
+const chrome = require('chrome')
+const Promise = require('bluebird')
+
+function getStorageDriver (local = false) {
+    if (!local) {
+        return chrome.storage.sync;
+    }
+
+    return chrome.storage.local;
+}
 
 class Storage {
-    constructor(local) {
-        this.storage = common.getStorage(local);
+    constructor (local, resolver = getStorageDriver) {
+        this.storage = resolver(local)
     }
 
-    get(key, callback) {
-        this.storage.get(key, (info) => {
-            info = info ? info[key] : undefined;
-            callback(info);
-        });
+    get(key, fallback) {
+        return new Promise((resolve, reject) => {
+            this.storage.get(key, (info) => {
+                info = info ? info[key] : fallback;
+                resolve(info)
+            });
+        })
     }
 
-    set(key, data, callback) {
+    set (key, data) {
         let sync = {};
         sync[key] = data;
-        this.storage.set(sync, () => {
-            if (callback) {
-                callback();
-            }
-        });
+        return new Promise((resolve, reject) => {
+            this.storage.set(sync, () => resolve());
+        })
     }
 
-    setData(data, callback) {
-        this.storage.set(data, () => {
-            if (callback) {
-                callback();
-            }
-        });
+    setData(data) {
+        return new Promise((resolve, reject) => {
+            this.storage.set(data, () => resolve());
+        })
     }
 }
 
-module.exports = Storage;
+export default Storage

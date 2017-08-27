@@ -1,0 +1,119 @@
+<template>
+    <div class="row">
+        <h3 class="text-primary">List Shortcuts</h3>
+        <table class="table table-bordered text-center">
+            <thead>
+            <tr class="success text-center">
+                <th class="text-center">Feature</th>
+                <th class="text-center">Shortcut</th>
+                <th class="text-center">Note</th>
+            </tr>
+            <tr  class="info">
+                <td>Focus Chat Box</td>
+                <td>space</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="">
+                <td>Focus Search Text Box</td>
+                <td>f</td>
+                <td>Default</td>
+            </tr>
+            <tr class="">
+                <td>Focus Task Box</td>
+                <td>t</td>
+                <td>Default</td>
+            </tr>
+            <tr class="">
+                <td>Open Contact Window</td>
+                <td>c</td>
+                <td>Default</td>
+            </tr>
+            <tr class="">
+                <td>Open Group Chat Window</td>
+                <td>g</td>
+                <td>Default</td>
+            </tr>
+            <tr class="info">
+                <td>Go To User's Own Chat Group</td>
+                <td>a</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Scroll to the end of Chat Box</td>
+                <td>s</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Reply Message</td>
+                <td>r</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Edit Message</td>
+                <td>e</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Edit Image Upload Message (remove some unnecessary information of an upload image)</td>
+                <td>Shift + e</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Quote Message</td>
+                <td>q</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go To Next Mention Message</td>
+                <td>j</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go To Previous Mention Message</td>
+                <td>k</td>
+                <td>Chat++</td>
+            </tr>
+
+            <tr class="info">
+                <td>Go to the first Room in the list</td>
+                <td>z</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go to the first nonstick Room in the list</td>
+                <td>x</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go to the Room below in the list</td>
+                <td>v</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go to the Room above in the list</td>
+                <td>b</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go to the first Room that has new unread Message(s)</td>
+                <td>n</td>
+                <td>Chat++</td>
+            </tr>
+            <tr class="info">
+                <td>Go to the first Room that has new unread Mention Message(s)</td>
+                <td>m</td>
+                <td>Chat++</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<style>
+    .official-data {
+        padding-bottom: 20px;
+    }
+</style>

@@ -1,0 +1,41 @@
+{
+    "name": "Chat++ for Chatwork",
+    "short_name": "Chat++",
+    "manifest_version": 2,
+    "description": "An all-in-one Chatwork Enhancement Toolkit which provides many useful features!",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.chatwork.com/*",
+                "https://kcw.kddi.ne.jp/*"
+            ],
+            "js": [
+                "contentscript.bundle.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "options_page": "options.html",
+    "background": {
+        "scripts": ["background.bundle.js"]
+    },
+    "web_accessible_resources": [
+        "internals.bundle.js"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon64.png"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "webRequest",
+        "https://www.chatwork.com/*"
+    ],
+    "icons": {
+        "64": "icon64.png",
+        "128": "icon128.png"
+    },
+    "homepage_url": "http://chatpp.thangtd.com",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

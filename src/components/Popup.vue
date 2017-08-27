@@ -1,0 +1,71 @@
+<template>
+    <div class="container">
+        <div class="media row" style="min-width: 360px; padding: 10px 0 10px 30px">
+            <div class="row">
+                <div class="media-left pull-left" href="#">
+                    <img src="../img/icon64.png" id="popup_page" alt="Angelic">
+                </div>
+                <div class="media-body pull-left">
+                    <h4 class="media-heading text-warning"><strong><span id="chatpp_version"></span></strong></h4>
+                    <h5 class="media-heading text-success"><strong>A Chatwork Enhancement Toolkit</strong></h5>
+                    <h5 class="media-heading"><a class="ext-url" href="https://twitter.com/chatplusplus">Follow me</a> - <a href="#" id="change_logs_page">Change Logs</a> - <a href="#" id="features_page">Features</a></h5>
+                </div>
+            </div>
+            <div class="row media-body pull-left" style="padding-top: 10px">
+                <button
+                    v-for="page in pages"
+                    type="button"
+                    class="btn btn-primary btn-xs"
+                    style="margin-bottom: 10px"
+                    :key="page"
+                    @click="open(page)"
+                >
+                    {{ page }}
+                </button>
+            </div>
+        </div>
+        <div class="row" style="padding-left: 20px">
+            <p class="text-warning">Homepage: <a id="homepage" class="ext-url" href="http://chatpp.thangtd.com">http://chatpp.thangtd.com</a></p>
+            <p class="text-warning">Author: <span class="text-danger"><strong>Tran Duc Thang</strong> - <strong>Nguyen Anh Tien</strong></span></p>
+            <hr>
+            <p class="text-warning">Emoticon: <span class="text-danger" id="emoticon-status"></span></p>
+            <p class="text-warning">Mention: <span class="text-danger" id="mention-status"></span></p>
+            <p class="text-warning">Shortcut: <span class="text-danger" id="shortcut-status"></span></p>
+            <p class="text-warning">Thumbnail: <span class="text-danger" id="thumbnail-status"></span></p>
+            <p class="text-warning">Highlight Code: <span class="text-danger" id="highlight-status"></span></p>
+            <p class="text-danger">Enable <strong>Thumbnail</strong> and <strong>Highlight Code</strong> feature may slow down Chatwork.
+                Please consider disabling them if your Chatwork does not run as smoothly as expected.
+            </p>
+            <hr>
+            <p class="text-black">ChatPP icon designed by <span class="text-danger">Tran Ba Trong</span>.</p>
+            <p class="text-danger">If you like Chat++, please <a class="ext-url" href="https://chrome.google.com/webstore/detail/chat%2B%2B/amhfnpimdfcdcpnchjionbddjjbmofnl/reviews">rate it</a> :)</p>
+            <p class="text-danger">If you'd like to contribute to Chat++, please refer the <a class="ext-url" href="https://github.com/wataridori/chatpp/blob/master/CONTRIBUTING.md">Contribution Guidelines</a></p>
+        </div>
+    </div>
+</template>
+
+<script>
+    import chrome from 'chrome'
+    const pages = ['settings', 'emoticons', 'groups', 'shortcuts', 'rooms', 'notifications']
+
+    export default {
+        data () {
+            return {
+                pages,
+            }
+        },
+        methods: {
+            open (page) {
+                chrome.tabs.create({ url: `options.html#/${page}` })
+            }
+        }
+    }
+</script>
+
+<style>
+    .text-black {
+        color: rgb(34, 34, 34);
+    }
+</style>
+
+<style src="bootstrap/dist/css/bootstrap.css"></style>

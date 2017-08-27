@@ -1,7 +1,7 @@
-let Const = require("./Const.js");
+import * as Const from './Const'
 
 class Common {
-    constructor() {
+    constructor () {
         this.version = Const.VERSION_CHROME;
         this.app_detail = this.getAppDetail();
         this.official_emoticons_data = {
@@ -28,24 +28,24 @@ class Common {
         };
     }
 
-    isChromeVersion() {
+    isChromeVersion () {
         return this.version === Const.VERSION_CHROME;
     }
 
-    isFirefoxVersion() {
+    isFirefoxVersion () {
         return this.version === Const.VERSION_FIREFOX;
     }
 
-    isDevVersion() {
+    isDevVersion () {
         let app_name = this.app_detail.name;
         return app_name.indexOf(Const.VERSION_NAME_DEV, app_name.length - (Const.VERSION_NAME_DEV).length) !== -1;
     }
 
-    checkDevVersionInternal() {
+    checkDevVersionInternal () {
         return localStorage["chatpp_version_name"] === Const.VERSION_NAME_DEV;
     }
 
-    getStorage(local) {
+    getStorage (local) {
         if (!local && this.isChromeVersion()) {
             return chrome.storage.sync;
         }
@@ -195,5 +195,4 @@ class Common {
     }
 }
 
-let common = new Common();
-module.exports = common;
+export default new Common()
